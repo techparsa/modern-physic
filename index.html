@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فیزیک مدرن | نسبیت و کوانتوم | آکادمی فیزیک</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- MathJax for mathematical formulas -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info span {
+            margin-left: 20px;
+        }
+
+        .contact-info i {
+            margin-left: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+        }
+
+        .main-header {
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .search-box button {
+            background: #4a6fa5;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: white;
+        }
+
+        .search-box button:hover {
+            background: #3a5a8c;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #1a1a2e;
+            border-bottom-color: #4a6fa5;
+            background-color: #f5f5f5;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="20" cy="20" r="2" fill="white"/><circle cx="80" cy="30" r="2" fill="white"/><circle cx="50" cy="60" r="2" fill="white"/><circle cx="30" cy="80" r="2" fill="white"/><circle cx="70" cy="70" r="2" fill="white"/><path d="M50 20 L60 40 L50 60 L40 40 Z" stroke="white" stroke-width="1" fill="none"/><path d="M20 30 Q35 45 30 60" stroke="white" stroke-width="1" fill="none"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            margin-top: 20px;
+        }
+
+        .breadcrumb a {
+            color: #4a6fa5;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: white;
+            margin: 0 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 40px;
+            font-weight: 300;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: #4a6fa5;
+        }
+
+        .section-title.centered {
+            text-align: center;
+        }
+
+        .section-title.centered::after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        /* Introduction */
+        .modern-intro {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            border-right: 5px solid #4a6fa5;
+        }
+
+        .modern-intro p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Scientists Grid */
+        .scientists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .scientist-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .scientist-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .scientist-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .scientist-header i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: #4a6fa5;
+        }
+
+        .scientist-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .scientist-header .lifespan {
+            color: #4a6fa5;
+            font-size: 1rem;
+        }
+
+        .scientist-content {
+            padding: 25px;
+        }
+
+        .scientist-content .achievement {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 3px solid #4a6fa5;
+        }
+
+        /* Relativity Section */
+        .relativity-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .relativity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .relativity-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .relativity-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #4a6fa5;
+        }
+
+        .relativity-formula {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.3rem;
+            direction: ltr;
+        }
+
+        .proof-steps {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+
+        .proof-steps ol {
+            padding-right: 20px;
+        }
+
+        .proof-steps li {
+            margin-bottom: 10px;
+        }
+
+        /* Quantum Section */
+        .quantum-section {
+            margin: 60px 0;
+        }
+
+        .quantum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .quantum-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quantum-card .header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .quantum-card .header h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .quantum-card .content {
+            padding: 25px;
+        }
+
+        .quantum-formula {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            direction: ltr;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .derivation {
+            background: #e8eaf6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            direction: ltr;
+            font-size: 0.95rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 4px;
+            height: 100%;
+            background: #4a6fa5;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .timeline-year {
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            background: #1a1a2e;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            top: 0;
+            border: 2px solid #4a6fa5;
+        }
+
+        .timeline-content h4 {
+            color: #1a1a2e;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Heisenberg Section */
+        .heisenberg-principle {
+            background: #f0f4f8;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            border: 2px solid #4a6fa5;
+        }
+
+        .principle-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .principle-formula {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .principle-formula .formula {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin: 20px 0;
+            direction: ltr;
+        }
+
+        /* Blackbody Section */
+        .blackbody-section {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+
+        .planck-law {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .planck-formula {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a1a;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: #4a6fa5;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #b0bec5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-section p {
+            color: #b0bec5;
+            margin-bottom: 10px;
+        }
+
+        .footer-section i {
+            margin-left: 10px;
+            color: #4a6fa5;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0bec5;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .relativity-grid,
+            .principle-box,
+            .planck-law {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                right: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                margin-right: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-year {
+                right: 30px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> </span>
+                <span><i class="fas fa-envelope"></i> </span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="color: white;">
+                    <h1>آکادمی فیزیک</h1>
+                    <p>دانش بنیادین هستی</p>
+                </a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="جستجوی مفاهیم، فیزیکدانان، مقالات...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">صفحه اصلی</a></li>
+                <li><a href="physics-classical.html">فیزیک کلاسیک</a></li>
+                <li><a href="#" class="active">فیزیک مدرن</a></li>
+                <li><a href="#">فیزیکدانان</a></li>
+                <li><a href="#">مقالات</a></li>
+                <li><a href="#">ویدئوها</a></li>
+                <li><a href="#">آزمایشگاه مجازی</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>فیزیک مدرن</h1>
+            <p>از نسبیت اینشتین تا عدم قطعیت هایزنبرگ؛ سفری به شگفتی‌های جهان کوانتومی</p>
+            <div class="breadcrumb">
+                <a href="index.html">صفحه اصلی</a>
+                <span>></span>
+                <span>فیزیک مدرن</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="modern-intro">
+                <p>فیزیک مدرن در اوایل قرن بیستم متولد شد و جهان‌بینی علمی را برای همیشه دگرگون کرد. دو انقلاب بزرگ در این دوره رخ داد: <strong>نسبیت</strong> اینشتین که درک ما از فضا، زمان و گرانش را متحول ساخت، و <strong>مکانیک کوانتومی</strong> که با مشارکت دانشمندانی چون ماکس پلانک، ورنر هایزنبرگ و اروین شرودینگر، جهان ذرات زیراتمی را برای اولین بار به روی ما گشود. [citation:1][citation:6]</p>
+            </section>
+
+            <!-- Scientists Section -->
+            <section>
+                <h2 class="section-title">معماران فیزیک مدرن</h2>
+                <div class="scientists-grid">
+                    <!-- Einstein -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-user-astronaut"></i>
+                            <h3>آلبرت اینشتین</h3>
+                            <div class="lifespan">۱۸۷۹ - ۱۹۵۵</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>پدر نسبیت، که درک ما از فضا، زمان و گرانش را متحول کرد. [citation:1]</p>
+                            <div class="achievement">
+                                <strong>نسبیت خاص (۱۹۰۵):</strong> E = mc²
+                            </div>
+                            <div class="achievement">
+                                <strong>نسبیت عام (۱۹۱۵):</strong> G_μν = 8πG T_μν
+                            </div>
+                            <p>همچنین برای کشف اثر فوتوالکتریک (که توضیح‌دهنده ماهیت کوانتومی نور بود) جایزه نوبل دریافت کرد. [citation:1]</p>
+                        </div>
+                    </div>
+
+                    <!-- Planck -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-fire"></i>
+                            <h3>ماکس پلانک</h3>
+                            <div class="lifespan">۱۸۵۸ - ۱۹۴۷</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>پدر مکانیک کوانتومی که با مطالعه تابش جسم سیاه، مفهوم کوانتومی‌شدن انرژی را معرفی کرد. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>قانون تابش پلانک (۱۹۰۰):</strong> E = hν
+                            </div>
+                            <p>ثابت پلانک (h) یکی از ثابت‌های بنیادی فیزیک است.</p>
+                        </div>
+                    </div>
+
+                    <!-- Heisenberg -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-dice-d6"></i>
+                            <h3>ورنر هایزنبرگ</h3>
+                            <div class="lifespan">۱۹۰۱ - ۱۹۷۶</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>یکی از بنیانگذاران مکانیک کوانتومی که اصل عدم قطعیت را کشف کرد. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>اصل عدم قطعیت (۱۹۲۷):</strong> Δx·Δp ≥ ħ/2
+                            </div>
+                            <div class="achievement">
+                                <strong>مکانیک ماتریسی:</strong> فرمول‌بندی ماتریسی مکانیک کوانتومی
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schrödinger -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-wave-square"></i>
+                            <h3>اروین شرودینگر</h3>
+                            <div class="lifespan">۱۸۸۷ - ۱۹۶۱</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>معمار مکانیک موجی که معادله معروف شرودینگر را ارائه داد. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>معادله شرودینگر:</strong> iħ ∂/∂t Ψ = ĤΨ
+                            </div>
+                            <p>گربه شرودینگر مثال معروفی برای توضیح اصل برهم‌نهی کوانتومی است.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Relativity Section -->
+            <section class="relativity-section">
+                <h2 class="section-title centered" style="color: white;">نظریه‌های نسبیت</h2>
+                <div class="relativity-grid">
+                    <!-- Special Relativity -->
+                    <div class="relativity-card">
+                        <h3>نسبیت خاص (۱۹۰۵)</h3>
+                        <p>اینشتین با دو اصل بنیادی، درک ما از فضا و زمان را دگرگون کرد: [citation:1][citation:6]</p>
+                        <ul style="margin: 20px 0; padding-right: 20px;">
+                            <li>قوانین فیزیک در تمام دستگاه‌های لخت یکسان‌اند</li>
+                            <li>سرعت نور در خلأ برای تمام ناظرین یکسان است</li>
+                        </ul>
+                        <div class="relativity-formula">
+                            \[ E = mc^2 \]
+                        </div>
+                        <p>معروف‌ترین معادله فیزیک که هم‌ارزی جرم و انرژی را نشان می‌دهد.</p>
+                        
+                        <div class="relativity-formula">
+                            \[ \gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} \]
+                        </div>
+                        <p>عامل لورنتس که نشان می‌دهد با نزدیک شدن به سرعت نور، زمان کندتر و طول کوتاهتر می‌شود. [citation:1]</p>
+
+                        <div class="proof-steps">
+                            <strong>نتیجه‌گیری فرمول هم‌ارزی جرم و انرژی:</strong>
+                            <ol style="margin-top: 15px;">
+                                <li>از تکانه نسبیتی: \( p = \gamma mv \)</li>
+                                <li>انرژی کل: \( E^2 = (pc)^2 + (mc^2)^2 \)</li>
+                                <li>برای ذره ساکن (v=0): \( E = mc^2 \)</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- General Relativity -->
+                    <div class="relativity-card">
+                        <h3>نسبیت عام (۱۹۱۵)</h3>
+                        <p>تعمیم نسبیت خاص به دستگاه‌های شتابدار و توصیف گرانش به عنوان خمیدگی فضا-زمان. [citation:1][citation:6]</p>
+                        
+                        <div class="relativity-formula">
+                            \[ G_{\mu\nu} = 8\pi G T_{\mu\nu} \]
+                        </div>
+                        <p>معادلات میدان اینشتین که ارتباط بین خمیدگی فضا-زمان (سمت چپ) و توزیع جرم-انرژی (سمت راست) را نشان می‌دهد. [citation:1]</p>
+
+                        <div class="proof-steps">
+                            <strong>مشتق‌گیری از اصل هم‌ارزی:</strong>
+                            <p>اصل هم‌ارزی اینشتین: جرم لختی و جرم گرانشی معادل‌اند. این اصل منجر به این نتیجه شد که گرانش می‌تواند به عنوان خمیدگی فضا-زمان توصیف شود. [citation:6]</p>
+                            <p>معادلات میدان از اصل کمترین действие (Action Principle) با لاگرانژی Einstein-Hilbert به دست می‌آیند:</p>
+                            <p style="direction: ltr; text-align: center;">S = ∫(R/2κ + L_m)√-g d⁴x</p>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <strong>پیش‌بینی‌های مهم:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>خمش نور در میدان گرانشی (تأیید در ۱۹۱۹)</li>
+                                <li>تقدیم حضیض خورشیدی عطارد</li>
+                                <li>اتساع زمان گرانشی</li>
+                                <li>امواج گرانشی (کشف در ۲۰۱۵)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Heisenberg Uncertainty Principle -->
+            <section class="heisenberg-principle">
+                <h2 class="section-title">اصل عدم قطعیت هایزنبرگ</h2>
+                <div class="principle-box">
+                    <div>
+                        <p>ورنر هایزنبرگ در سال ۱۹۲۷ نشان داد که در جهان کوانتومی، جفت‌های خاصی از کمیت‌های فیزیکی (مانند مکان و تکانه) نمی‌توانند همزمان با دقت دلخواه اندازه‌گیری شوند. این اصل بنیادی مکانیک کوانتومی است. [citation:1][citation:3]</p>
+                        <p>این اصل نتیجه ماهیت موجی-ذرهای ماده است و ربطی به محدودیت ابزار اندازه‌گیری ندارد. این یک ویژگی بنیادی طبیعت است.</p>
+                        <div class="achievement" style="margin-top: 20px;">
+                            <strong>پیامدهای مهم:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>عدم وجود مدارهای دقیق برای الکترون‌ها در اتم</li>
+                                <li>تونل‌زنی کوانتومی</li>
+                                <li>انرژی نقطه صفر</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-formula">
+                        <h4 style="color: #1a1a2e;">فرمول عدم قطعیت</h4>
+                        <div class="formula">
+                            \[ \Delta x \cdot \Delta p \geq \frac{\hbar}{2} \]
+                        </div>
+                        <p style="margin: 15px 0;">و برای انرژی و زمان:</p>
+                        <div class="formula">
+                            \[ \Delta E \cdot \Delta t \geq \frac{\hbar}{2} \]
+                        </div>
+                        <p style="margin-top: 20px; font-size: 0.9rem;">ħ = h/2π (ثابت کاهیده پلانک)</p>
+                    </div>
+                </div>
+
+                <div class="derivation" style="margin-top: 30px; direction: rtl;">
+                    <strong style="display: block; margin-bottom: 15px;">اثبات ریاضی (از رابطه جابجایی‌گری):</strong>
+                    <p>در مکانیک کوانتومی، عملگرهای مکان و تکانه در یک بعد از رابطه زیر پیروی می‌کنند:</p>
+                    <p style="direction: ltr; text-align: center;">[x̂, p̂] = x̂p̂ - p̂x̂ = iħ</p>
+                    <p>از این رابطه جابجایی‌گری و نابرابری کوشی-شوارتز برای توابع موج، می‌توان عدم قطعیت را اثبات کرد:</p>
+                    <p style="direction: ltr; text-align: center;">(Δx)²(Δp)² ≥ |⟨[x̂,p̂]⟩|²/4 = ħ²/4</p>
+                </div>
+            </section>
+
+            <!-- Quantum Mechanics Section -->
+            <section class="quantum-section">
+                <h2 class="section-title">مکانیک کوانتومی</h2>
+                <div class="quantum-grid">
+                    <!-- Schrödinger Equation -->
+                    <div class="quantum-card">
+                        <div class="header">
+                            <i class="fas fa-wave-square" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                            <h4>معادله شرودینگر</h4>
+                        </div>
+                        <div class="content">
+                            <p>معادله بنیادی مکانیک کوانتومی که تکامل تابع موج سیستم را توصیف می‌کند. [citation:1][citation:3]</p>
+                            <div class="quantum-formula">
+                                \[ i\hbar\frac{\partial}{\partial t}\Psi = \hat{H}\Psi \]
+                            </div>
+                            <p><strong>معادله مستقل از زمان:</strong></p>
+                            <div class="quantum-formula">
+                                \[ \hat{H}\psi = E\psi \]
+                            </div>
+                            <div class="derivation">
+                                <strong>اشتقاق از روش فاینمن:</strong>
+                                <p>انتگرال مسیر فاینمن: \(\langle x_f|e^{-iHt/\hbar}|x_i\rangle = \int \mathcal{D}x e^{iS[x]/\hbar}\)</p>
+                                <p>از این رابطه و اصل کمترین اثر، معادله شرودینگر قابل استخراج است. [citation:5]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Born Interpretation -->
+                    <div class="quantum-card">
+                        <div class="header">
+                            <i class="fas fa-chart-bar" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                            <h4>تفسیر بورن</h4>
+                        </div>
+                        <div class="content">
+                            <p>ماکس بورن در سال ۱۹۲۶ تفسیر احتمالاتی تابع موج را ارائه داد. [citation:1][citation:3]</p>
+                            <div class="quantum-formula">
+                                \[ P = |\Psi|^2 \]
+                            </div>
+                            <p>مجذور قدر مطلق تابع موج، چگالی احتمال یافتن ذره را می‌دهد.</p>
+                            <div class="quantum-formula">
+                                \[ \int |\Psi|^2 dV = 1 \]
+                            </div>
+                            <p>شرط نرم‌شدگی: احتمال یافتن ذره در کل فضا برابر ۱ است.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dirac Formulation -->
+                    <div class="quantum-card">
+                        <div class="header">
+                            <i class="fas fa-vector-square" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                            <h4>فرمول‌بندی دیراک</h4>
+                        </div>
+                        <div class="content">
+                            <p>پل دیراک فرمول‌بندی مدرن مکانیک کوانتومی با استفاده از فضای هیلبرت و نماد براکت را ارائه داد. [citation:1]</p>
+                            <div class="quantum-formula">
+                                \[ |\psi\rangle = \sum_n c_n |n\rangle \]
+                            </div>
+                            <p>حالت کوانتومی به صورت بردار در فضای هیلبرت نمایش داده می‌شود.</p>
+                            <div class="quantum-formula">
+                                \[ \langle m|n\rangle = \delta_{mn} \]
+                            </div>
+                            <p>ویژه‌حالت‌های یک دستگاه، یک پایه متعامد تشکیل می‌دهند.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Planck's Blackbody Radiation -->
+            <section class="blackbody-section">
+                <h2 class="section-title centered" style="color: white;">تابش جسم سیاه و ماکس پلانک</h2>
+                <div class="planck-law">
+                    <div>
+                        <p>ماکس پلانک در سال ۱۹۰۰ با مطالعه تابش جسم سیاه، مفهومی انقلابی را معرفی کرد: انرژی به صورت بسته‌های گسسته (کوانتوم) تابش یا جذب می‌شود. این لحظه تولد مکانیک کوانتومی بود. [citation:1][citation:3]</p>
+                        <p>پلانک فرض کرد که نوسانگرهای تشکیل‌دهنده دیواره جسم سیاه، تنها می‌توانند انرژی‌هایی به صورت مضرب صحیحی از hν داشته باشند، جایی که h ثابت جدیدی بود که بعدها به نام او نامگذاری شد.</p>
+                        <div class="achievement" style="background: rgba(255,255,255,0.1); margin-top: 20px;">
+                            <strong>اهمیت کشف پلانک:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>اولین گام به سوی مکانیک کوانتومی</li>
+                                <li>معرفی ثابت پلانک (h)</li>
+                                <li>حل معمای فاجعه فرابنفش</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="planck-formula">
+                        <h4 style="color: #4a6fa5;">قانون تابش پلانک</h4>
+                        <div class="relativity-formula" style="background: rgba(0,0,0,0.5);">
+                            \[ B(\nu,T) = \frac{2h\nu^3}{c^2} \frac{1}{e^{\frac{h\nu}{kT}} - 1} \]
+                        </div>
+                        <p style="margin-top: 15px;">چگالی طیفی تابش جسم سیاه بر حسب بسامد</p>
+                        
+                        <div class="derivation" style="background: rgba(0,0,0,0.3); color: white; margin-top: 20px;">
+                            <strong>مراحل استخراج:</strong>
+                            <ol style="margin-top: 15px; text-align: right;">
+                                <li>تعداد مدهای نوسانی در حفره: \( N(\nu)d\nu = \frac{8\pi\nu^2}{c^3}V d\nu \)</li>
+                                <li>انرژی متوسط هر نوسانگر کوانتومی: \( \langle E \rangle = \frac{h\nu}{e^{h\nu/kT} - 1} \)</li>
+                                <li>چگالی انرژی: \( u(\nu,T) = N(\nu)\langle E \rangle/V \)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h4 style="color: #4a6fa5; margin-bottom: 20px;">تقریب‌های حدی</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                            <strong>حد رایلی-جینز (hν ≪ kT):</strong>
+                            <div class="relativity-formula" style="background: rgba(0,0,0,0.3);">
+                                \[ B(\nu,T) \approx \frac{2\nu^2}{c^2} kT \]
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                            <strong>حد وین (hν ≫ kT):</strong>
+                            <div class="relativity-formula" style="background: rgba(0,0,0,0.3);">
+                                \[ B(\nu,T) \approx \frac{2h\nu^3}{c^2} e^{-\frac{h\nu}{kT}} \]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section>
+                <h2 class="section-title">گاهشمار طلایی فیزیک مدرن</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۰۰ - قانون پلانک</h4>
+                            <p>ماکس پلانک قانون تابش جسم سیاه را با فرض کوانتومی بودن انرژی ارائه داد. این نقطه آغاز مکانیک کوانتومی بود. [citation:1][citation:3]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۰۰</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۰۵ - نسبیت خاص</h4>
+                            <p>اینشتین مقاله‌ای درباره الکترودینامیک اجسام متحرک منتشر کرد و نظریه نسبیت خاص را ارائه داد. همچنین اثر فوتوالکتریک را توضیح داد. [citation:1][citation:6]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۰۵</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۱۵ - نسبیت عام</h4>
+                            <p>اینشتین نظریه نسبیت عام را کامل کرد و گرانش را به عنوان خمیدگی فضا-زمان توصیف نمود. [citation:1][citation:6]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۱۵</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۲۵ - مکانیک ماتریسی</h4>
+                            <p>هایزنبرگ، بورن و جردن مکانیک ماتریسی را پایه‌گذاری کردند. [citation:1][citation:3]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۲۵</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۲۶ - معادله شرودینگر</h4>
+                            <p>اروین شرودینگر معادله موجی خود را منتشر کرد و معادل بودن مکانیک موجی و ماتریسی را نشان داد. [citation:1][citation:3]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۲۶</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>۱۹۲۷ - اصل عدم قطعیت</h4>
+                            <p>ورنر هایزنبرگ اصل عدم قطعیت را کشف کرد که بنیادی‌ترین اصل مکانیک کوانتومی است. [citation:1][citation:3]</p>
+                        </div>
+                        <div class="timeline-year">۱۹۲۷</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Scientists -->
+            <section>
+                <h2 class="section-title">سایر پیشگامان فیزیک مدرن</h2>
+                <div class="scientists-grid">
+                    <!-- Bohr -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-atom"></i>
+                            <h3>نیلز بور</h3>
+                            <div class="lifespan">۱۸۸۵ - ۱۹۶۲</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>مدل اتمی بور و اصل مکملیت. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>مدل اتم بور:</strong> \( E_n = -\frac{13.6}{n^2} eV \)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dirac -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-equation"></i>
+                            <h3>پل دیراک</h3>
+                            <div class="lifespan">۱۹۰۲ - ۱۹۸۴</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>معادله دیراک و پیش‌بینی پوزیترون. [citation:1]</p>
+                            <div class="achievement">
+                                <strong>معادله دیراک:</strong> \( (i\gamma^\mu\partial_\mu - m)\psi = 0 \)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pauli -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-ban"></i>
+                            <h3>ولفگانگ پاولی</h3>
+                            <div class="lifespan">۱۹۰۰ - ۱۹۵۸</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>اصل طرد پاولی. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>اصل طرد:</strong> هیچ دو فرمیونی نمی‌توانند همه اعداد کوانتومی یکسان داشته باشند
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- de Broglie -->
+                    <div class="scientist-card">
+                        <div class="scientist-header">
+                            <i class="fas fa-wave-square"></i>
+                            <h3>لویی دوبروی</h3>
+                            <div class="lifespan">۱۸۹۲ - ۱۹۸۷</div>
+                        </div>
+                        <div class="scientist-content">
+                            <p>موج‌های ماده. [citation:1][citation:3]</p>
+                            <div class="achievement">
+                                <strong>فرمول دوبروی:</strong> \( \lambda = \frac{h}{p} \)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>درباره ما</h4>
+                    <p>آکادمی فیزیک با هدف ترویج دانش فیزیک و ایجاد پلی بین مفاهیم پایه‌ای و پیشرفته برای علاقه‌مندان به این علم بنیادین تأسیس شده است.</p>
+                <h1>این سایت توسط محمد جعفر افرازه نوشته شده است</h1>
+                </div>
+                <div class="footer-section">
+                    <h4>دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="index.html">صفحه اصلی</a></li>
+                        <li><a href="physics-classical.html">فیزیک کلاسیک</a></li>
+                        <li><a href="#">فیزیک مدرن</a></li>
+                        <li><a href="#">فیزیکدانان</a></li>
+                        <li><a href="#">مقالات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>ارتباط با ما</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> گرمسار</p>
+                    <p><i class="fas fa-phone"></i> telegram ID: @AfrazehW</p>
+                    <p><i class="fas fa-envelope"></i> موجود نیست</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>تمامی حقوق برای آکادمی فیزیک محفوظ است &copy; 2026,1404</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MathJax configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</body>
+</html>
